@@ -26,9 +26,9 @@ Resize image using Sharp
 ### Resize image
 
 + `npm install`
++ Add your image to `public/imageInput` before building the project.
 + `npm run build`
 + `npm run start`
-+ Add your image to `public/imageInput`
 + Open browser and add your image file name and desired width & height to the URL. Example: <http://localhost:3000/main/image?file=rock-bridge&width=500&height=400>
   + `file=` the image file name here
   + `width=` new image width here

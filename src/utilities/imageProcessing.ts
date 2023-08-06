@@ -12,8 +12,6 @@ const resizeImage: RequestHandler = async (req, res) => {
   const file = req.query.file;
 
   const inputPath = path.join(__dirname, IMAGE_INPUT_PATH, `${file}.jpg`);
-  console.log('inputPath >>>', inputPath);
-  console.log('file >>>', file);
 
   const outputPath = path.join(
     __dirname,

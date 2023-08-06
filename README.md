@@ -24,7 +24,16 @@ TBD
 
 ## Folder structure
 
-TBD
+```bash
+ .
+ ├── spec                    # Unit tests configuration
+ ├── public                  # Assets (Images)
+ ├── src                     # Source files
+ │   ├── routes
+ │   ├── utilities
+ ├── tests                   # Unit tests
+ └── README.md
+```;
 
 ## Dependencies
 
@@ -32,6 +41,7 @@ TBD
 + sharp
 + eslint
 + jasmine
++ supertest
 + nodemon
 + prettier
 + rimraf

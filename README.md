@@ -33,7 +33,7 @@ TBD
  │   ├── utilities
  ├── tests                   # Unit tests
  └── README.md
-```;
+```
 
 ## Dependencies
 

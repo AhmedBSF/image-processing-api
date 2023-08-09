@@ -3,7 +3,7 @@ import resizeImage from '../utilities/imageProcessing';
 
 const imageRoutes = express.Router();
 
-imageRoutes.get('/', (_req: Request, res: Response) => {
+imageRoutes.get('/', (_req: Request, res: Response): void => {
   res.send(
     'Add to the URL /image?file={your image file name}&width={new width}&height={new height} to resize an image.'
   );
@@ -11,7 +11,7 @@ imageRoutes.get('/', (_req: Request, res: Response) => {
 
 imageRoutes.use('/image', resizeImage);
 
-imageRoutes.get('*', (_req: Request, res: Response) => {
+imageRoutes.get('*', (_req: Request, res: Response): void => {
   res.status(404);
   res.send('Not found');
 });

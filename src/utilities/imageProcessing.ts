@@ -24,14 +24,14 @@ export const resizeImage: RequestHandler = async (
   );
 
   if (!width || !height || !file) {
-    return res.send(
-      'Invalid query! Make sure to add file name, width and height'
-    );
+    return res
+      .status(400)
+      .send('Invalid query! Make sure to add file name, width and height');
   }
 
   try {
     if (fileSys.existsSync(outputPath)) {
-      return res.sendFile(outputPath);
+      return res.status(409).sendFile(outputPath);
     } else {
       await fs.stat(inputPath);
       await sharp(inputPath).resize(width, height).toFile(outputPath);

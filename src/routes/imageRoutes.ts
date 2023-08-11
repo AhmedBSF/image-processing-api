@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import resizeImage from '../utilities/imageProcessing';
+import processImage from '../utilities/imageProcessing';
 
 const imageRoutes = express.Router();
 
@@ -9,7 +9,7 @@ imageRoutes.get('/', (_req: Request, res: Response): void => {
   );
 });
 
-imageRoutes.use('/image', resizeImage);
+imageRoutes.use('/image', processImage);
 
 imageRoutes.get('*', (_req: Request, res: Response): void => {
   res.status(404);

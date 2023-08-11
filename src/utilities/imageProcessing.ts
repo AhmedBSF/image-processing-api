@@ -8,7 +8,16 @@ import sharp from 'sharp';
 const IMAGE_INPUT_PATH = '../../public/assets/imageInput';
 const IMAGE_OUTPUT_PATH = '../../public/assets/imageOutput';
 
-export const resizeImage: RequestHandler = async (
+export function resizeImage(
+  inputPath: string,
+  outputPath: string,
+  width: number,
+  height: number
+) {
+  return sharp(inputPath).resize(width, height).toFile(outputPath);
+}
+
+export const processImage: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
@@ -34,7 +43,7 @@ export const resizeImage: RequestHandler = async (
       return res.status(409).sendFile(outputPath);
     } else {
       await fs.stat(inputPath);
-      await sharp(inputPath).resize(width, height).toFile(outputPath);
+      await resizeImage(inputPath, outputPath, width, height);
     }
     try {
       await fs.stat(outputPath);
@@ -47,4 +56,4 @@ export const resizeImage: RequestHandler = async (
   }
 };
 
-export default resizeImage;
+export default processImage;
